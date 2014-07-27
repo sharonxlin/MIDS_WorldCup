@@ -1,0 +1,323 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "My_SQL_Exercises.sql",
+			"settings":
+			{
+				"buffer_size": 293,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/* Global */\n\nbody {\n	font-family: 'Open Sans', sans-serif;\n	font-weight: 400;\n	font-size: 1em;\n	color: #8a8683;\n	background-color:#ffffff;\n}\nimg {\n	max-width: 100%;\n}\na:link {\n	color: #f68f67;\n	text-decoration: none;\n}\na:hover {\n	color: #bde2df;\n	text-decoration: none;\n}\na:visited {\n	color: #f68f67;\n	text-decoration: none;\n}\n\n\n\n\n\n/* Navigation */\n\n.menu {\n	position:fixed;\n	top:0px;\n	width:100%; \n	height:auto; \n	background-color:#ffffff;\n	z-index:100;\n}\n#logo {\n	text-align: center;\n	margin: 10px 0;\n}\n#nav {\n	text-align: right;\n	margin: 30px 0 0 0;\n}\n.navigation{\n	float: right;\n	list-style: none;\n	margin: 0;\n}\n.navigation li{\n	float: left;\n	padding:0 0 0 50px;\n}\n.navigation li:hover{\n	cursor:pointer;\n	color: #a9d3d0;\n}\n\n.navigation .active{\n	cursor:pointer;\n	color: #f68f67;\n	font-weight:bold;\n}\n\n\n\n\n/* General Slides */ \n\n.slide{\n	background-attachment: fixed;\n	width:100%;\n	height:auto;\n	position: relative;\n	padding:140px 0;\n}\n\n\n\n/* Slide 1 */ \n\n#slide1{\n	background-color:#ffffff;\n}\n#slide1 h1 {\n	font-size: 3.8em;\n	letter-spacing: -3px;\n	line-height: 0px;\n	color:#8a8683;\n	font-weight: 700;\n}\n#slide1 h2 {\n	font-size: 2em;\n	color: #8a8683;\n	line-height: 0px;\n	padding-bottom:20px;\n	font-weight: 400;\n}\n\n\n\n\n/* Slide 2 */ \n\n#slide2{\n	background-image:url('../images/footprints.png');\n	background-color:#f68f67;\n	color:#ffffff;\n}\n#slide2 h1 {\n	font-size: 3.8em;\n	letter-spacing: -3px;\n	line-height: 0px;\n	color:#ffffff;\n	font-weight: 700;\n}\n#slide2 h2 {\n	font-size: 2em;\n	color: #ffffff;\n	line-height: 0px;\n	padding-bottom:20px;\n	font-weight: 400;\n}\n\n\n\n\n/* Slide 3 */ \n\n#slide3{\n	background-color:#ffffff;\n}\n#slide3 h1 {\n	font-size: 3.8em;\n	letter-spacing: -3px;\n	line-height: 0px;\n	color:#8a8683;\n	font-weight: 700;\n}\n#slide3 h2 {\n	font-size: 2em;\n	color: #8a8683;\n	line-height: 0px;\n	padding-bottom:20px;\n	font-weight: 400;\n}\n#test{\n	background-color:#bde2df;\n	color:#ffffff;\n	text-align:center;\n	font-size: 2em;\n	font-weight: 400;\n}\n\n\n\n\n/* Slide 4 */\n\n#slide4{\n	background-image:url('../images/sunglasses.png');\n	background-color:#8a8683;\n	color:#ffffff;\n}\n#slide4 h1 {\n	font-size: 3.8em;\n	letter-spacing: -3px;\n	line-height: 0px;\n	color:#ffffff;\n	font-weight: 700;\n}\n#slide4 h2 {\n	font-size: 2em;\n	color: #ffffff;\n	line-height: 0px;\n	padding-bottom:20px;\n	font-weight: 400;\n}\n\n\n\n\n\n/* Tablet */\n@media screen and (max-width: 1024px) {\n\n#logo {\n	width: 100%;\n	text-align: center;\n}\n\n#nav {\n	width:100%;\n	text-align:center;\n	margin:10px 0;\n}\n\n.navigation{\n	width: 100%;\n	float: center;\n	list-style: none;\n	margin: 0;\n	padding:0;\n}\n\n.navigation li{\n	float: left;\n	width:25%;\n	padding:0;\n}\n\n.slide{\n	background-attachment: fixed;\n	width:100%;\n	position: relative;\n	padding:150px 0;\n}\n\n#decorative {\n	display:none;\n}\n\n#content {\n	text-align:center;\n	width:100%;\n}\n\n#slide1 h1 {\n	line-height: 1em;\n}\n#slide1 h2 {\n	line-height: 1em;\n}\n#slide2 h1 {\n	line-height: 1em;\n}\n#slide2 h2 {\n	line-height: 1em;\n}\n#slide3 h1 {\n	line-height: 1em;\n}\n#slide3 h2 {\n	line-height: 1em;\n}\n#slide4 h1 {\n	line-height: 1em;\n}\n#slide4 h2 {\n	line-height: 1em;\n}\n\n}\n\n\n\n\n/* Mobile */\n@media screen and (max-width: 480px) {\n\n#logo {\n	width: 100%;\n	text-align: center;\n}\n\n#nav {\n	width:100%;\n	margin:5px 0;\n}\n\n.navigation{\n	width: 100%;\n	float: left;\n	list-style: none;\n	margin: 0;\n	padding:0;\n}\n\n.navigation li{\n	float: left;\n	width:25%;\n}\n\n.slide{\n	background-attachment: fixed;\n	width:100%;\n	position: relative;\n	padding:150px 0;\n}\n\n\n#slide1 h1 {\n	line-height: 1em;\n}\n#slide1 h2 {\n	line-height: 1em;\n}\n#slide2 h1 {\n	line-height: 1em;\n}\n#slide2 h2 {\n	line-height: 1em;\n}\n#slide3 h1 {\n	line-height: 1em;\n}\n#slide3 h2 {\n	line-height: 1em;\n}\n#slide4 h1 {\n	line-height: 1em;\n}\n#slide4 h2 {\n	line-height: 1em;\n}\n\n\n}",
+			"file": "style.css",
+			"file_size": 3692,
+			"file_write_time": 1406399499000000,
+			"settings":
+			{
+				"buffer_size": 3692,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "WORLDCUP.html",
+			"settings":
+			{
+				"buffer_size": 1020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#!/usr/bin/env bash\n\n# check to see if cleancss is installed\ncommand -v cleancss >/dev/null 2>&1 || {\n  echo 'cleancss is required. run: sudo npm install clean-css -g' >&2; exit 1;\n}\n\n# check to see if uglifyjs is installed\ncommand -v uglifyjs >/dev/null 2>&1 || {\n  echo 'uglifyjs is required. run: sudo npm install uglify-js -g' >&2; exit 1;\n}\n\n# find the folder that this script is in. this is the root of the project\nscriptDir=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" && pwd )\"\n\n# short css and js directories\ncssDir=\"$scriptDir/css\"\njsDir=\"$scriptDir/js\"\n\n# concat the files and output the minified version\ncat \"$cssDir/normalize.css\" \"$cssDir/grid.css\" \"$cssDir/style.css\" | cleancss -o \"$cssDir/style.min.css\"\n\necho \"compiled >> css/style.min.css\"\n\n# grab all the js files and concat them with uglifyjs\nuglifyjs \"$jsDir/jquery.stellar.min.js\" \"$jsDir/waypoints.min.js\" \"$jsDir/jquery.easing.1.3.js\" \"$jsDir/scripts.js\" -o \"$jsDir/scripts.min.js\"\n\necho \"compiled >> js/scripts.min.js\"\n\nexit 0",
+			"file": "compile.sh",
+			"file_size": 999,
+			"file_write_time": 1406393301000000,
+			"settings":
+			{
+				"buffer_size": 999,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "HTML/WORLDCUP/js/jquery.easing.1.3.js",
+			"settings":
+			{
+				"buffer_size": 8093,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Set Syntax: JavaScript"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/billlewis/Documents/HTML/style.css",
+		"/Users/billlewis/Documents/HTML/TESTWEBPAGE.html",
+		"/Users/billlewis/Documents/jquery.easing.1.3.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"skip"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "My_SQL_Exercises.sql",
+					"settings":
+					{
+						"buffer_size": 293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								292,
+								292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style.css",
+					"settings":
+					{
+						"buffer_size": 3692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3692,
+								3692
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4232.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "WORLDCUP.html",
+					"settings":
+					{
+						"buffer_size": 1020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								628
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "compile.sh",
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "HTML/WORLDCUP/js/jquery.easing.1.3.js",
+					"settings":
+					{
+						"buffer_size": 8093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8092,
+								8092
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"untitled"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
