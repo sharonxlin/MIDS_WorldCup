@@ -102,6 +102,7 @@ a:visited {
 }
 #ytplayer {
 	margin-top: 3em;
+	margin-right: 22px;
 }
 
 
@@ -191,6 +192,7 @@ a:visited {
 	line-height: 0px;
 	color:#ffffff;
 	font-weight: 700;
+	margin: 0.5em 0px;
 }
 #slide5 h2 {
 	font-size: 2em;
@@ -344,4 +346,41 @@ a:visited {
 }
 
 
+}
+
+
+/*** REVISIONS TO CSS 7/28/14 ***/
+
+#content{
+	position: relative;
+}
+h1.sideh1{
+	position: absolute;
+	left: -40px;
+	top: -15px;
+}
+h1.sideh12{
+	position: absolute;
+	left: -75px;
+	top: 249px;
+}
+.infomationp{
+	margin-top: 27px;
+}
+#informationdata{
+	margin-top: 40px;
+}
+.socialcontent{
+	margin-top: 20px; 
+}
+.socialcontent strong{
+	color: #000;
+	border: 2px solid #000;
+	padding: 5px 12px;
+	border-radius: 100%;
+}
+.socialcontent p{
+	color: #000;
+	font-size: 13px;
+	font-weight: bold;
 }
