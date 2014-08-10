@@ -1,6 +1,6 @@
 /* Global */
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif; 
+  font-family: "Lato", sans-serif; 
   font-weight: 300;
   font-size: 1em;
   color: #8a8683;
@@ -211,7 +211,7 @@ a:visited {
 }
 /* Slide 5 - Search*/
 #slide5 {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #8a8683;
 }
 #slide5 h1 {
