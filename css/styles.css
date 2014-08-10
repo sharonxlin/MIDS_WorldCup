@@ -211,7 +211,7 @@ a:visited {
 }
 /* Slide 5 - Search*/
 #slide5 {
-  background-color: #ffffff;
+  background:url('../images/search/light_grey.png');
   color: #8a8683;
 }
 #slide5 h1 {
