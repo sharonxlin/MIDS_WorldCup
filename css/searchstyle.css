@@ -32,7 +32,7 @@ input[type=button],input[type=button]:hover {
 	padding: 20px 25px;		
 }
 .lighter{
-	background-color: #FFFFFF;
+	background-color: background:url('../images/white_background.jpg');
 }
 .lighter input[type=text]{
 	border:1px solid #d0d0d0;
