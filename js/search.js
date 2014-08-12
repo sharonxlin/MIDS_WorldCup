@@ -18,7 +18,7 @@ function closeDiv()
 }
 
 
-function on_data_load(data){
+function on_data2_load(data){
 	
 	values_array = data.facet_counts.facet_ranges.created_at.counts;
 	
@@ -104,7 +104,7 @@ function on_data_load(data){
 
 }
 
-	function on_data_hour(data)
+	function on_data2_hour(data)
 {
 	var openDiv = document.getElementById('hour_chart');
 	openDiv.style.display = '';
@@ -707,7 +707,7 @@ else
 								                    
 }
 	    	
-function on_data(data){
+function on_data2(data){
 	
 	values_array = data.facet_counts.facet_ranges.created_at.counts;
 	
@@ -795,7 +795,7 @@ function on_data(data){
 											search_day_end=values_array[(Number(day)*2)+2];
 										}
 										$("#hiddenVal").val(search_day_start);
-										search_url =  "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data_hour";
+										search_url =  "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data2_hour";
 										
 											$.getJSON(search_url);
 										}
@@ -841,7 +841,7 @@ function on_data(data){
 }
 $(document).ready(function() { 
 	
-	initial_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data_load";
+	initial_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2_load";
 	$.getJSON(initial_url);
 	
 	$('#txtSearch').bind('keypress', function(event) {
@@ -858,7 +858,7 @@ $(document).ready(function() {
 		document.getElementById("lblError").innerHTML = "";
 		var search = $("#txtSearch").val();
 		var final_search = search.replace('#',"%23");
-		solr_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+final_search+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data";
+		solr_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+final_search+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
 											
 			
 			$.getJSON(solr_url);
