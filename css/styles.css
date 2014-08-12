@@ -99,8 +99,13 @@ a:visited {
   font-weight: 400;
 }
 /* Slide 2 - Main*/
-#slide2 {
+#slide2,
+#slide6{
   background-image: -webkit-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -webkit-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
+  background-image: -moz-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -moz-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
+  background-image: -o-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -o-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
+  background-image: -ms-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -ms-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
+  background-image: linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed !important;
@@ -211,7 +216,8 @@ a:visited {
 }
 /* Slide 5 - Search*/
 #slide5 {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
+  background:url('../images/white_background.jpg');
   color: #8a8683;
 }
 #slide5 h1 {
@@ -376,12 +382,32 @@ a:visited {
 h1.sideh1 {
   position: absolute;
   left: -40px;
-  top: -19px;
+  top: -2px;
 }
 h1.sideh12 {
   position: absolute;
-  left: -75px;
-  top: 220px;
+  left: -40px;
+  top: 310px;
+}
+h1.sideh13 {
+  position: absolute;
+  left: -40px;
+  top: 70px;
+}
+h1.sideh14 {
+  position: absolute;
+  left: -40px;
+  top: 140px;
+}
+h1.sideh15 {
+  position: absolute;
+  left: -40px;
+  top: 370px;
+}
+h1.sideh16 {
+  position: absolute;
+  left: -40px;
+  top: 440px;
 }
 div.center iframe {
   display: block !important;
@@ -520,6 +546,7 @@ div.center iframe {
   display: block;
   width: 100%;
   margin: 0 auto;
+  list-style-type: none;
 }
 #tw-search-input {
   border-radius: 10px;
@@ -536,6 +563,7 @@ div.center iframe {
 }
 #tw-search-results {
   list-style: none;
+  list-style-type: none;
   padding-left: 0;
   height: 300px;
   width: 100%;
@@ -545,6 +573,7 @@ div.center iframe {
 .tw-search-result,
 .tw-search-result-round {
   background: #fff;
+  list-style-type: none;
   border-bottom: 1px solid silver;
   color: #616161;
   padding: 1em 1em;
