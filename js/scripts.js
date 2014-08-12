@@ -1,4 +1,3 @@
-//script for search
 function on_data(data){
 //  console.log(data.response);
 $("#tw-search-icon").addClass("fa-search");

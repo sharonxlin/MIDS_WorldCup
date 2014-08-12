@@ -100,6 +100,7 @@ a:visited {
 }
 /* Slide 2 - Main*/
 #slide2,
+#slide4,
 #slide6{
   background-image: -webkit-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -webkit-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
   background-image: -moz-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -moz-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
@@ -143,7 +144,7 @@ a:visited {
   margin-right: 22px;
 }
 #slide3 {
-  background-color: #ffffff;
+  background:url('../images/white_background.jpg');
   color: #ffffff;
 }
 #slide3 h1 {
@@ -161,42 +162,13 @@ a:visited {
   font-weight: 400;
 }
 .informationp {
-
-  padding-bottom: 10px;
-  color: #8a8683;
-}
-.informationq {
-margin-top: 50px;
-  color: #8a8683;
-}
-.informationr {
-  margin-top: 15px;
-  color: #8a8683;
-}
-.informations {
-  padding-top: 40px;
-   margin-top: 10px;
-  color: #8a8683;
-}
-.informationt {
-  margin-top: -1px;
-  color: #8a8683;
-}
-.informationu {
-  margin-top: 50px;
+  margin-top: 40px;
   color: #8a8683;
 }
 #informationdata {
   margin-top: 40px;
 }
-
 /* Slide 4 - Social*/
-#slide4 {
-  background-image: -webkit-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -webkit-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-attachment: local !important;
-}
 #slide4 h1 {
   font-size: 3.8em;
   line-height: 0px;
@@ -257,6 +229,15 @@ margin-top: 50px;
   padding-bottom: 20px;
   font-weight: 400;
 }
+
+#slide6 h2 {
+  font-size: 1.5em;
+  color: #FDB515;
+  line-height: 0px;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+
 .searchp {
   color: #8a8683;
   font-weight: normal;
@@ -270,7 +251,7 @@ margin-top: 50px;
 }
 /* Slide 6 - Credits */
 .creditsa {
-  color:gray !important;
+  color:#FDB515 !important;
 }
 .creditsa :hover {
   cursor: pointer;
@@ -405,33 +386,34 @@ margin-top: 50px;
 h1.sideh1 {
   position: absolute;
   left: -40px;
-  top: -2px;
+  top: 12px;
 }
 h1.sideh12 {
   position: absolute;
   left: -40px;
-  top: 310px;
+  top: 332px;
 }
 h1.sideh13 {
   position: absolute;
   left: -40px;
-  top: 70px;
+  top: 71px;
 }
 h1.sideh14 {
   position: absolute;
   left: -40px;
-  top: 140px;
+  top: 148px;
 }
 h1.sideh15 {
   position: absolute;
   left: -40px;
-  top: 370px;
+  top: 390px;
 }
 h1.sideh16 {
   position: absolute;
   left: -40px;
-  top: 440px;
+  top: 448px;
 }
+
 div.center iframe {
   display: block !important;
   margin-left: auto !important;
@@ -588,7 +570,7 @@ div.center iframe {
   list-style: none;
   list-style-type: none;
   padding-left: 0;
-  height: 300px;
+  height: 421px;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;

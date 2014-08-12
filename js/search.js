@@ -18,96 +18,91 @@ function closeDiv()
 }
 
 
-function on_data2_load(data){
-	
-	values_array = data.facet_counts.facet_ranges.created_at.counts;
-	
-	closeDiv();
-	
-	$('#chart_panel').highcharts({
-		title: {
-			text: 'Twitter Trends by Day'
-		},
-	
-		subtitle: {
-			text: 'Total tweets retrieved: '+addCommas(data.response.numFound)
-		},
-		tooltip: {
-		            formatter: function () {
-		                return '<b>' + this.series.name + '</b><br/>' +
-		                    this.x + ': ' + this.y;
-		            }
-		        },
-		xAxis: {
-			categories: ["Jun13","Jun 14","Jun15","Jun16","Jun17","Jun18","Jun19","Jun20","Jun21","Jun22","Jun23",
-						"Jun24","Jun25","Jun26","Jun27","Jun28","Jun29","Jun30","Jul01","Jul02","Jul03","Jul04","Jul05","Jul06",
-						"Jul07","Jul08","Jul09","Jul10","Jul11","Jul12","Jul13","Jul14"],
-			type: 'category',
-			title: {
-				text: 'Date'
-			},
-	        labels: {
-	        rotation: -45,
-			y: 25,
-		    style: {
-			fontSize: '12px',
-			fontFamily: 'Verdana, sans-serif'				
-			}
+function on_data_hoursearch(data)
+{
+    var $twResults = $("#tw-search-results_hour");
+	var $twResultsRight = $("#tw-search-results_hourright");
+    $twResults.html('');
+	$twResultsRight.html('');
+	var getStart = Number($("#hiddenHour").val());
+	if (getStart > 0 && getStart <11)
+	{
+		document.getElementById("lblTime").innerHTML = getStart+" am to "+Number(getStart+1)+" am";
+	}
+	else if(getStart>=12 && getStart<23)
+	{
+		if(getStart==12)
+		{
+			document.getElementById("lblTime").innerHTML = "12 pm to 1 pm";
 		}
-		},
-		yAxis: {
-			min: 0,
-			title: {
-				text: 'Number of tweets'
-			},
-			plotlines: [{
-				value: 0,
-				width: 1,
-				color: '#808080'
-
-			}]
-		},
+		else
 		
-		legend: {
-			enabled:false
-		},
-		
-		series: [{
-			name: 'Number of Tweets',
-			data: [values_array[1],values_array[3],values_array[5],values_array[7],values_array[9],values_array[11],values_array[13],
-				 values_array[15],values_array[17],values_array[19],values_array[21],values_array[23],values_array[25],values_array[27],
-				{ y: values_array[29],marker: {symbol: 'square'}},values_array[31],values_array[33],values_array[35],values_array[37], 
-				{ y: values_array[39], 
-				marker: {symbol: 'square'
-				}},{ y: values_array[41], 
-				marker: {symbol: 'square'
-				}},
-				values_array[43], values_array[45], 
-				{ y: values_array[47], 
-				marker: {symbol: 'square'
-				}},{ y: values_array[49], 
-				marker: {symbol: 'square'
-				}},values_array[51],values_array[53], 
-				{ y: values_array[55], 
-				marker: {symbol: 'square'
-				}},
-				{ y: values_array[57], 
-				marker: {symbol: 'square'
-				}},values_array[59],values_array[61],{ y: values_array[63], 
-													marker: {symbol: 'square'
-				}}]
+		document.getElementById("lblTime").innerHTML = Number(getStart-12)+" pm to "+Number(getStart-11)+" pm";
+	}
+	else if(getStart == 0)
+	{
+		document.getElementById("lblTime").innerHTML = "12 am to 1 am";
+	}
+	else if(getStart==11)
+	{
+		document.getElementById("lblTime").innerHTML = "11 am to 12 pm";
+	}
+	else if(getStart==23)
+	{
+		document.getElementById("lblTime").innerHTML = "11 pm to 12 am";
+	}
+	document.getElementById('tw-results').style.display='';	
+    switch(data.response.numFound){
+        case 0:
+            $twResults.append('<li class="tw-no-results" style="color:#8a8683">No results found, please try a different keyword</li>');
+        break;
+        case 1:
+            $twResults.append('<li class="tw-search-result-round" style="height:85px">' + 
+                '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
+                    data.response.docs[0].username[0] +
+                '">@' + data.response.docs[0].username[0] + ':</a></span> ' +
+                    data.response.docs[0].twitter[0] + 
+                '<span class="tw-search-date">' + data.response.docs[0].created_at + '</span>' +
+            '</li>');
 
-		}]
-
-	});
-
-
+        break;
+        default:
+            for (var i = 0; i < 10; i++){
+              				
+				var parsedDate = new Date(data.response.docs[i].created_at);
+				current_hour = parsedDate.getHours();
+				parsedDate.setHours(current_hour+7);
+                $twResults.append('<li class="tw-search-result" style="height:85px">' + 
+                    '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
+                        data.response.docs[i].username[0] +
+                    '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
+                        data.response.docs[i].twitter[0] + 
+                    '<span class="tw-search-date">' + parsedDate.format('g:ia F jS Y') + '</span>' +
+                '</li>');
+				i++;
+				 parsedDate = new Date(data.response.docs[i].created_at);
+				current_hour = parsedDate.getHours();
+				parsedDate.setHours(current_hour+7);
+                $twResultsRight.append('<li class="tw-search-result" style="height:85px">' + 
+                    '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
+                        data.response.docs[i].username[0] +
+                    '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
+                        data.response.docs[i].twitter[0] + 
+                    '<span class="tw-search-date">' + parsedDate.format('g:ia F jS Y') + '</span>' +
+                '</li>');
+				
+										
+            }
+        break;
+    }
 }
 
-	function on_data2_hour(data)
+
+	function on_data_hour(data)
 {
 	var openDiv = document.getElementById('hour_chart');
 	openDiv.style.display = '';
+	document.getElementById("tw-results").style.display='none';
 	
 	values_array_hour = data.facet_counts.facet_ranges.created_at.counts;
 	var day = $("#hiddenVal").val();
@@ -648,7 +643,7 @@ else
 			},
 			subtitle: {
 				
-				text: 'Selected Date: '+simple_date+'<br />'+'Click on the line graph to close this view'
+				text: 'Selected Date: '+simple_date+'<br />'+'Click on a data point to view tweets for that hour'
 			},
 			
 			
@@ -687,11 +682,21 @@ else
 			plotOptions: {
 			            series: {
 			                cursor: 'pointer',
-			                events: {
-								click: function(event) {
-			                    document.getElementById("hour_chart").style.display='none';
-								document.getElementById("scroll_here").scrollIntoView();
+							point: { 
+									events: {
+								click: function(e) {
+			                    
+								//document.getElementById("scroll_here").scrollIntoView();
+								var hour_start = day + "%2B"+this.x+"HOUR";
+								$("#hiddenHour").val(this.x);
+								var hour_end = hour_start+"%2B59MINUTE%2B59SECOND";
+							    solr_url_hour="http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&fq=created_at:["+hour_start+" TO "+hour_end+"]&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&rows=10&wt=json&callback=?&json.wrf=on_data_hoursearch";
+									
+							    console.log("solr_url_hour:");
+							    console.log(solr_url_hour);
+							    $.getJSON(solr_url_hour);
 								}
+							}
 			                    }
 			                }
 			            },
@@ -712,18 +717,20 @@ function on_data2(data){
 	values_array = data.facet_counts.facet_ranges.created_at.counts;
 	
 	closeDiv();
+	document.getElementById("tw-results").style.display='none';
 	
 	$('#chart_panel').highcharts({
 		
 		chart: {
-			marginTop: 70
+			marginTop: 70,
+			spacingLeft: 20
 		},
 		title: {
 			text: 'Twitter Trends by Day'
 		},
 	
 		subtitle: {
-			text: 'Total tweets retrieved: '+addCommas(data.response.numFound)+'<br />'+'Click any data point to view hourly activity for that day'
+			text: 'Total tweets retrieved for <b>'+$("#txtSearch").val()+' </b>: '+addCommas(data.response.numFound)+'<br />'+'Click any data point to view hourly activity for that day'
 		},
 		tooltip: {
 		            formatter: function () {
@@ -742,6 +749,7 @@ function on_data2(data){
 	        labels: {
 	        rotation: -45,
 			y: 25,
+			step: 2,
 		    style: {
 			fontSize: '12px',
 			fontFamily: 'Verdana, sans-serif'				
@@ -775,7 +783,10 @@ function on_data2(data){
 										{
 											hourDiv = document.getElementById("hour_chart");
 											if (hourDiv.style.display!='none')
+											{
 											closeDiv();
+											document.getElementById("tw-results").style.display='none';
+											}
 											else
 											{
 											hourDiv.style.display='';
@@ -795,7 +806,7 @@ function on_data2(data){
 											search_day_end=values_array[(Number(day)*2)+2];
 										}
 										$("#hiddenVal").val(search_day_start);
-										search_url =  "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data2_hour";
+										search_url =  "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data_hour";
 										
 											$.getJSON(search_url);
 										}
@@ -841,7 +852,7 @@ function on_data2(data){
 }
 $(document).ready(function() { 
 	
-	initial_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2_load";
+	initial_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
 	$.getJSON(initial_url);
 	
 	$('#txtSearch').bind('keypress', function(event) {
