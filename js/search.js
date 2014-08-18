@@ -25,6 +25,7 @@ function on_data_hoursearch(data)
     $twResults.html('');
 	$twResultsRight.html('');
 	var getStart = Number($("#hiddenHour").val());
+	document.getElementById("lblSearchText").innerHTML = $("#txtSearch").val();
 	if (getStart > 0 && getStart <11)
 	{
 		document.getElementById("lblTime").innerHTML = getStart+" am to "+Number(getStart+1)+" am";
@@ -639,11 +640,15 @@ else
 			},
 			
 			title: {
-				text: 'Twitter Trends by Hour'
+				text: 'Hourly Twitter activity for <b>'+$("#txtSearch").val()+' </b> on '+simple_date
 			},
 			subtitle: {
 				
-				text: 'Selected Date: '+simple_date+'<br />'+'Click on a data point to view tweets for that hour'
+				text: 'Click on a data point to view tweets for that hour',
+				style:{
+					fontWeight:'bold',
+					color:'red'
+				}
 			},
 			
 			
@@ -730,7 +735,7 @@ function on_data2(data){
 		},
 	
 		subtitle: {
-			text: 'Total tweets retrieved for <b>'+$("#txtSearch").val()+' </b>: '+addCommas(data.response.numFound)+'<br />'+'Click any data point to view hourly activity for that day'
+			text: 'Total tweets retrieved for <b>'+$("#txtSearch").val()+' </b>: '+addCommas(data.response.numFound)+'<br />'+'<b style="color:red;font-weight:bold">Click any data point to view hourly activity for that day</b>'
 		},
 		tooltip: {
 		            formatter: function () {
