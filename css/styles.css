@@ -100,7 +100,8 @@ a:visited {
 }
 /* Slide 2 - Main*/
 #slide2,
-#slide4,
+#slide8,
+#slide5,
 #slide7{
   background-image: -webkit-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -webkit-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
   background-image: -moz-linear-gradient(top, rgba(17, 2, 49, 0.75), rgba(17, 2, 49, 0)), -moz-linear-gradient(bottom left, #eb6670, #f67f7c, #f9ac97, #f1b79f, #e1bea7, #c3bcb0, #8aabb2, #4e95b2, #2588b6);
@@ -168,21 +169,22 @@ a:visited {
 #informationdata {
   margin-top: 40px;
 }
-/* Slide 4 - Social*/
-#slide4 h1 {
+
+/* Slide 8 - Geo*/
+#slide8 h1 {
   font-size: 3.8em;
   line-height: 0px;
   color: #ffffff;
   font-weight: 700;
 }
-#slide4 h2 {
+#slide8 h2 {
   font-size: 2em;
   color: #ffffff;
   line-height: 0px;
   padding-bottom: 20px;
   font-weight: 400;
 }
-#slide4 h3 {
+#slide8 h3 {
   font-size: 1em;
   color: #ffffff;
   margin-bottom: 50px;
@@ -209,27 +211,92 @@ a:visited {
 .socialcontent .left {
   max-width: 90%;
 }
-/* Slide 5 - Sentiment Analysis*/
-#slide5 {
-  /*background-color: #FFFFFF;*/
+
+/* Slide 4 - Sentiment Analysis*/
+#slide4 {  
   background:url('../images/white_background.jpg');
   color: #8a8683;
 }
-#slide5 h1 {
+#slide4 h1 {
   font-size: 3.8em;
   line-height: 0px;
   color: #8a8683 !important;
   font-weight: 700;
   margin: 0.5em 0px;
 }
-#slide5 h2 {
+#slide4 h2 {
   font-size: 2em;
   color: #8a8683;
   line-height: 0px;
   padding-bottom: 20px;
   font-weight: 400;
 }
-
+#slide4 h3 {
+  font-size: 1em;
+  color: #8a8683;
+  margin-bottom: 50px;
+  line-height: 0px;
+  font-weight: normal;
+}
+.socialcontent {
+  margin-top: 20px;
+  color: #8a8683;
+}
+.socialcontent strong {
+  color: #ffffff;
+  border: 2px solid #8a8683;
+  padding: 5px 12px;
+  border-radius: 100%;
+  float: left;
+  margin-right: 1em;
+}
+.socialcontent p {
+  color: #8a8683;
+  font-size: 13px;
+  font-weight: bold;
+}
+.socialcontent .left {
+  max-width: 90%;
+}
+/* Slide 5 - Social*/
+#slide5 {
+  /*background-color: #FFFFFF;*/
+  color: #FFFFFF;
+}
+#slide5 h1 {
+  font-size: 3.8em;
+  line-height: 0px;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  margin: 0.5em 0px;
+}
+#slide5 h2 {
+  font-size: 2em;
+  color: #FFFFFF;
+  line-height: 0px;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+.socialcontent {
+  margin-top: 20px;
+  color: #FFFFFF;
+}
+.socialcontent strong {
+  color: #ffffff;
+  border: 2px solid #FFFFFF;
+  padding: 5px 12px;
+  border-radius: 100%;
+  float: left;
+  margin-right: 1em;
+}
+.socialcontent p {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+}
+.socialcontent .left {
+  max-width: 90%;
+}
 
 
 
