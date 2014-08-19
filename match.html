@@ -82,7 +82,7 @@ div.tooltip {
 </style>
 <link rel="stylesheet" type="text/css" href="map_js/jquery-ui-1.11.0.custom/jquery-ui.min.css">
 <body>
-<div id="drop">
+<div align="center" id="drop">
   <select>
   <option value="Match01">6/12 Group Stage: BRA vs CRO</option>
   <option value="Match02">6/13 Group Stage: MEX vs CMR</option>
@@ -149,7 +149,7 @@ div.tooltip {
   <option value="Match63">7/12 Third Place: BRA vs NED</option>
   <option value="Match64">7/13 Final: GER vs ARG</option>
   </select>
-</div>
+</div></br>
 
 <div id="matches">
   <div id="Match01">
@@ -453,7 +453,7 @@ var country = svg.selectAll(".country").data(countries);
 
         tooltip
           .classed("hidden", false)
-          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+(mouse[1]+30)+"px")
+          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+(mouse[1]+130)+"px")
           .html(d.name)
       })
       .on("mouseout",  function(d,i) {
