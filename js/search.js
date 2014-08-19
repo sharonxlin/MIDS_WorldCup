@@ -25,7 +25,6 @@ function on_data_hoursearch(data)
     $twResults.html('');
 	$twResultsRight.html('');
 	var getStart = Number($("#hiddenHour").val());
-
 	document.getElementById("lblSearchText").innerHTML = $("#txtSearch").val();
 	if (getStart > 0 && getStart <11)
 	{
@@ -645,15 +644,11 @@ else
 			},
 			subtitle: {
 				
-<<<<<<< HEAD
-				text: 'Selected Date: '+simple_date+'<br />'+'Click on a data point to view tweets for that hour'
-=======
 				text: 'Click on a data point to view tweets for that hour',
 				style:{
 					fontWeight:'bold',
 					color:'red'
 				}
->>>>>>> f006090d31f8da581496533c4d93775ddbbe0550
 			},
 			
 			
@@ -740,11 +735,7 @@ function on_data2(data){
 		},
 	
 		subtitle: {
-<<<<<<< HEAD
-			text: 'Total tweets retrieved for <b>'+$("#txtSearch").val()+' </b>: '+addCommas(data.response.numFound)+'<br />'+'Click any data point to view hourly activity for that day'
-=======
 			text: 'Total tweets retrieved for <b>'+$("#txtSearch").val()+' </b>: '+addCommas(data.response.numFound)+'<br />'+'<b style="color:red;font-weight:bold">Click any data point to view hourly activity for that day</b>'
->>>>>>> f006090d31f8da581496533c4d93775ddbbe0550
 		},
 		tooltip: {
 		            formatter: function () {
