@@ -10,12 +10,13 @@ switch(data.response.numFound){
     $twResults.append('<li class="tw-no-results">No results found, please try a different keyword</li>');
     break;
     case 1:
+	var newDate = new Date(data.response.docs[0].created_at);
     $twResults.append('<li class="tw-search-result-round">' + 
         '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
         data.response.docs[0].username[0] +
         '">@' + data.response.docs[0].username[0] + ':</a></span> ' +
         data.response.docs[0].twitter[0] + 
-        '<span class="tw-search-date">' + data.response.docs[0].created_at + '</span>' +
+        '<span class="tw-search-date">' + newDate.format('g:ia F jS Y') + '</span>' +
         '</li>');
 
     break;
@@ -37,7 +38,7 @@ switch(data.response.numFound){
 function doSearch(query){
     $("#tw-search-icon").removeClass("fa-search");
     $("#tw-search-icon").addClass("fa-spinner fa-spin");
-    solr_url="http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+query+"&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&rows=100&wt=json&callback=?&json.wrf=on_data";
+    solr_url="http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q="+query+"&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&rows=100&wt=json&callback=?&json.wrf=on_data";
 
 //    solr_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=" + query + "&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json"
 solr_url = solr_url.replace(/#/g, "%23");

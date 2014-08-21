@@ -58,12 +58,13 @@ function on_data_hoursearch(data)
             $twResults.append('<li class="tw-no-results" style="color:#8a8683">No results found, please try a different keyword</li>');
         break;
         case 1:
+			var newDate = new Date(data.response.docs[0].created_at);
             $twResults.append('<li class="tw-search-result-round" style="height:85px">' + 
                 '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
                     data.response.docs[0].username[0] +
-                '">@' + data.response.docs[0].username[0] + ':</a></span> ' +
+               '">@' + data.response.docs[0].username[0] + ':</a></span> ' +
                     data.response.docs[0].twitter[0] + 
-                '<span class="tw-search-date">' + data.response.docs[0].created_at + '</span>' +
+                '<span class="tw-search-date">' + newDate.format('g:ia F jS Y') + '</span>' +
             '</li>');
 
         break;
@@ -76,7 +77,7 @@ function on_data_hoursearch(data)
                 $twResults.append('<li class="tw-search-result" style="height:85px">' + 
                     '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
                         data.response.docs[i].username[0] +
-                    '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
+                   '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
                         data.response.docs[i].twitter[0] + 
                     '<span class="tw-search-date">' + parsedDate.format('g:ia F jS Y') + '</span>' +
                 '</li>');
@@ -87,7 +88,7 @@ function on_data_hoursearch(data)
                 $twResultsRight.append('<li class="tw-search-result" style="height:85px">' + 
                     '<span class="tw-search-username"><a href="https://twitter.com/ ' + 
                         data.response.docs[i].username[0] +
-                    '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
+                   '">@' + data.response.docs[i].username[0] + ':</a></span> ' +
                         data.response.docs[i].twitter[0] + 
                     '<span class="tw-search-date">' + parsedDate.format('g:ia F jS Y') + '</span>' +
                 '</li>');
@@ -695,7 +696,7 @@ else
 								var hour_start = day + "%2B"+this.x+"HOUR";
 								$("#hiddenHour").val(this.x);
 								var hour_end = hour_start+"%2B59MINUTE%2B59SECOND";
-							    solr_url_hour="http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&fq=created_at:["+hour_start+" TO "+hour_end+"]&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&rows=10&wt=json&callback=?&json.wrf=on_data_hoursearch";
+							    solr_url_hour="http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&fq=created_at:["+hour_start+" TO "+hour_end+"]&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&rows=10&wt=json&callback=?&json.wrf=on_data_hoursearch";
 									
 							    console.log("solr_url_hour:");
 							    console.log(solr_url_hour);
@@ -811,7 +812,7 @@ function on_data2(data){
 											search_day_end=values_array[(Number(day)*2)+2];
 										}
 										$("#hiddenVal").val(search_day_start);
-										search_url =  "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data_hour";
+										search_url =  "http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q="+$("#txtSearch").val().replace('#',"%23")+"&rows=0&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start="+search_day_start+"&f.created_at.facet.range.end="+search_day_end+"&f.created_at.facet.range.gap=%2B1HOUR&callback=?&json.wrf=on_data_hour";
 										
 											$.getJSON(search_url);
 										}
@@ -857,7 +858,7 @@ function on_data2(data){
 }
 $(document).ready(function() { 
 	
-	initial_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
+	initial_url = "http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q=%23worldcup&rows=0&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
 	$.getJSON(initial_url);
 	
 	$('#txtSearch').bind('keypress', function(event) {
@@ -874,7 +875,7 @@ $(document).ready(function() {
 		document.getElementById("lblError").innerHTML = "";
 		var search = $("#txtSearch").val();
 		var final_search = search.replace('#',"%23");
-		solr_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q="+final_search+"&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
+		solr_url = "http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q="+final_search+"&rows=0&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&wt=json&facet=true&facet.range=created_at&f.created_at.facet.range.start=2014-06-13T00:00:00Z&f.created_at.facet.range.end=2014-07-14T23:59:59Z&f.created_at.facet.range.gap=%2B1DAY&callback=?&json.wrf=on_data2";
 											
 			
 			$.getJSON(solr_url);
