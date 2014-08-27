@@ -38,7 +38,7 @@ switch(data.response.numFound){
 function doSearch(query){
     $("#tw-search-icon").removeClass("fa-search");
     $("#tw-search-icon").addClass("fa-spinner fa-spin");
-    solr_url="http://ec2-54-191-240-195.us-west-2.compute.amazonaws.com/solr/select?q="+query+"&shards=ec2-54-213-225-40.us-west-2.compute.amazonaws.com/solr,ec2-54-213-226-73.us-west-2.compute.amazonaws.com/solr,ec2-54-191-205-157.us-west-2.compute.amazonaws.com/solr,ec2-54-213-124-54.us-west-2.compute.amazonaws.com/solr&rows=100&wt=json&callback=?&json.wrf=on_data";
+    solr_url="http://ec2-54-191-139-83.us-west-2.compute.amazonaws.com/solr/select?q="+query+"&shards=ec2-54-213-242-60.us-west-2.compute.amazonaws.com/solr,ec2-54-218-17-123.us-west-2.compute.amazonaws.com/solr,ec2-54-201-155-239.us-west-2.compute.amazonaws.com/solr,ec2-54-218-23-110.us-west-2.compute.amazonaws.com/solr&rows=100&wt=json&callback=?&json.wrf=on_data";
 
 //    solr_url = "http://ec2-54-191-203-106.us-west-2.compute.amazonaws.com/solr/select?q=" + query + "&rows=0&shards=ec2-54-187-19-231.us-west-2.compute.amazonaws.com/solr,ec2-54-191-246-50.us-west-2.compute.amazonaws.com/solr,ec2-54-191-235-9.us-west-2.compute.amazonaws.com/solr,ec2-54-187-54-57.us-west-2.compute.amazonaws.com/solr,ec2-54-187-173-64.us-west-2.compute.amazonaws.com/solr&wt=json"
 solr_url = solr_url.replace(/#/g, "%23");
